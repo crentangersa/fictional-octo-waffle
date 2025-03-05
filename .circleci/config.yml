@@ -1,31 +1,166 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/configuration-reference
+working_dir: &working_dir ~/app
 version: 2.1
-
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/jobs-steps/#jobs-overview & https://circleci.com/docs/configuration-reference/#jobs
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/executor-intro/ & https://circleci.com/docs/configuration-reference/#executor-job
+  red:
+    ###############################
     docker:
-      # Specify the version you desire here
-      # See: https://circleci.com/developer/images/image/cimg/base
-      - image: cimg/base:current
-
-    # Add steps to the job
-    # See: https://circleci.com/docs/jobs-steps/#steps-overview & https://circleci.com/docs/configuration-reference/#steps
+      - image: cimg/python:3.10
+    
     steps:
-      # Checkout the code as the first step.
       - checkout
+      
+      
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: a
+          
+          command: |
+            python orb.py
+            
+            
+  blue:
+    
+    docker:
+      - image: cimg/python:3.10
+    
+    steps:
+      - checkout
+      
+      
+      - run:
+          name: b
+          
+          command: |
+            python orb.py
+  silver:
+    
+    docker:
+      - image: cimg/python:3.10
+    
+    steps:
+      - checkout
+      
+      
+      - run:
+          name: q
+          
+          command: |
+            python orb.py
 
-# Orchestrate jobs using workflows
-# See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
+  yellow:
+    
+    docker:
+      - image: cimg/python:3.10
+    
+    steps:
+      - checkout
+      
+      
+      - run:
+          name: w
+          
+          command: |
+            python orb.py
+  green:
+    
+    docker:
+      - image: cimg/python:3.10
+    
+    steps:
+      - checkout
+      
+      
+      - run:
+          name: e
+          
+          command: |
+            python orb.py
+
+  purple:
+    
+    docker:
+      - image: cimg/python:3.10
+    
+    steps:
+      - checkout
+      
+      
+      - run:
+          name: r
+          
+          command: |
+            python orb.py
+
+  pink:
+    
+    docker:
+      - image: cimg/python:3.10
+    
+    steps:
+      - checkout
+      
+      - run:
+          name: t
+          
+          command: |
+            python orb.py
+
+  black:
+    
+    docker:
+      - image: cimg/python:3.10
+    
+    steps:
+      - checkout
+      
+      
+      - run:
+          name: y
+          
+          command: |
+            python orb.py
+  white:
+    
+    docker:
+      - image: cimg/python:3.10
+    
+    steps:
+      - checkout
+      
+      
+      - run:
+          name: u
+          
+          command: |
+            python orb.py
+
+
+  grey:
+    
+    docker:
+      - image: cimg/python:3.10
+    
+    steps:
+      - checkout
+      
+      
+      - run:
+          name: i
+          
+          command: |
+            python orb.py
+
+
 workflows:
-  say-hello-workflow: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
-    jobs:
-      - say-hello
+    version: 2.1
+    build:
+        jobs:
+             - red
+             - blue
+             - silver
+             - yellow
+             - green
+             - purple
+             - pink
+             - black
+             - white
+             - grey
